@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AttackTarget : MonoBehaviour
 {
-    [FormerlySerializedAs("attackType")] public AttackType attackTypeType;
+    public AttackType attackType;
 
     // Start is called before the first frame update
     private void Start()

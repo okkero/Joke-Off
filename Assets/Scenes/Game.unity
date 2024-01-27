@@ -292,7 +292,7 @@ MonoBehaviour:
   keyCode: 119
   yStart: 0
   yEnd: -0.8
-  debug: 1
+  debug: 0
 --- !u!1001 &149445125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1503,7 +1503,7 @@ MonoBehaviour:
   keyCode: 113
   yStart: 0
   yEnd: -0.5
-  debug: 1
+  debug: 0
 --- !u!1001 &1920289208
 PrefabInstance:
   m_ObjectHideFlags: 0

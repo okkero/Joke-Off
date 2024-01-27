@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -12,10 +13,13 @@ public class Fighter : MonoBehaviour
 {
     public PlayerIndex player;
     public Fighter opponent;
+    private Mouth _mouth;
+    private Coroutine _openMouthCoroutine;
 
     // Start is called before the first frame update
     private void Start()
     {
+        _mouth = GetComponentInChildren<Mouth>();
     }
 
     // Update is called once per frame
@@ -48,10 +52,21 @@ public class Fighter : MonoBehaviour
     private void OnAttack(AttackType attackType)
     {
         Debug.unityLogger.Log($"Attack {attackType}");
-        var origin = GetComponentsInChildren<AttackTarget>().First(target => target.attackTypeType == attackType);
+
+        if (_openMouthCoroutine != null) StopCoroutine(_openMouthCoroutine);
+        _openMouthCoroutine = StartCoroutine(OpenMouth());
+
+        var origin = GetComponentsInChildren<AttackTarget>().First(target => target.attackType == attackType);
         var target = opponent.GetComponentsInChildren<AttackTarget>()
-            .First(target => target.attackTypeType == attackType);
+            .First(target => target.attackType == attackType);
         FightManager.Instance.SpawnAttackProjectile(origin.transform, target);
+    }
+
+    private IEnumerator OpenMouth()
+    {
+        _mouth.SetOpen(true);
+        yield return new WaitForSeconds(0.16f);
+        _mouth.SetOpen(false);
     }
 
     private void OnHiAttack()
