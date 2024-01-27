@@ -152,7 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea0d9658ff6436bb9f52b883cb4899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4245988211437370879, guid: 416f1fe7169f94318aa2c51e25c3bee4, type: 3}
+  projectilePrefabHi: {fileID: 4245988211437370879, guid: 416f1fe7169f94318aa2c51e25c3bee4, type: 3}
+  projectilePrefabHa: {fileID: 4245988211437370879, guid: e84167ba7235c49898f7fb3203a10881, type: 3}
+  projectilePrefabHo: {fileID: 4245988211437370879, guid: 7134e524fd0ea4f7dbbef463d9c7cba0, type: 3}
+  projectilePrefabHe: {fileID: 4245988211437370879, guid: 58f9f59c6ff4a4d938b8f90769fdb4b9, type: 3}
 --- !u!4 &99186279
 Transform:
   m_ObjectHideFlags: 0

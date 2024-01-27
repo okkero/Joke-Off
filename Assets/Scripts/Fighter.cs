@@ -59,7 +59,7 @@ public class Fighter : MonoBehaviour
         var origin = GetComponentsInChildren<AttackTarget>().First(target => target.attackType == attackType);
         var target = opponent.GetComponentsInChildren<AttackTarget>()
             .First(target => target.attackType == attackType);
-        FightManager.Instance.SpawnAttackProjectile(origin.transform, target);
+        FightManager.Instance.SpawnAttackProjectile(attackType, origin.transform, target);
     }
 
     private IEnumerator OpenMouth()
