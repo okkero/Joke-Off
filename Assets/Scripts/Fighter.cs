@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public enum FighterCharacterType
 {
@@ -23,8 +22,6 @@ public class Fighter : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        var gameController = FindObjectOfType<GameController>();
-        Debug.unityLogger.Log($"State is {gameController.State}");
     }
 
     // Update is called once per frame
