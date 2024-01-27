@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public enum FighterCharacterType
@@ -7,17 +8,10 @@ public enum FighterCharacterType
     NotMario
 }
 
-public enum Attack
-{
-    Hi,
-    Ha,
-    Ho,
-    He
-}
-
 public class Fighter : MonoBehaviour
 {
     public FighterCharacterType character;
+    public Fighter opponent;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,9 +23,12 @@ public class Fighter : MonoBehaviour
     {
     }
 
-    private void OnAttack(Attack attack)
+    private void OnAttack(Attack attackType)
     {
-        Debug.unityLogger.Log($"Attack {attack}");
+        Debug.unityLogger.Log($"Attack {attackType}");
+        var origin = GetComponentsInChildren<AttackTarget>().First(target => target.attackType == attackType);
+        var target = opponent.GetComponentsInChildren<AttackTarget>().First(target => target.attackType == attackType);
+        FightManager.Instance.SpawnAttackProjectile(origin.transform.position, target);
     }
 
     private void OnHiAttack()
