@@ -1,16 +1,16 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
-public enum FighterCharacterType
+public enum PlayerIndex
 {
-    NotSonic,
-    NotPikachu,
-    NotMario
+    Player1,
+    Player2
 }
 
 public class Fighter : MonoBehaviour
 {
-    public FighterCharacterType character;
+    public PlayerIndex player;
     public Fighter opponent;
 
     // Start is called before the first frame update
@@ -21,33 +21,56 @@ public class Fighter : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        HandleKeyboardInput();
     }
 
-    private void OnAttack(Attack attackType)
+    private void HandleKeyboardInput()
+    {
+        PlayerInput playerInput;
+        switch (player)
+        {
+            case PlayerIndex.Player1:
+                playerInput = KeyboardInputManager.Player1Input;
+                break;
+            case PlayerIndex.Player2:
+                playerInput = KeyboardInputManager.Player2Input;
+                break;
+            default:
+                throw new Exception("Oopsie daisie :)");
+        }
+
+        var attack = playerInput.Attack;
+        if (attack == null) return;
+
+        OnAttack(attack.Value);
+    }
+
+    private void OnAttack(AttackType attackType)
     {
         Debug.unityLogger.Log($"Attack {attackType}");
-        var origin = GetComponentsInChildren<AttackTarget>().First(target => target.attackType == attackType);
-        var target = opponent.GetComponentsInChildren<AttackTarget>().First(target => target.attackType == attackType);
-        FightManager.Instance.SpawnAttackProjectile(origin.transform.position, target);
+        var origin = GetComponentsInChildren<AttackTarget>().First(target => target.attackTypeType == attackType);
+        var target = opponent.GetComponentsInChildren<AttackTarget>()
+            .First(target => target.attackTypeType == attackType);
+        FightManager.Instance.SpawnAttackProjectile(origin.transform, target);
     }
 
     private void OnHiAttack()
     {
-        OnAttack(Attack.Hi);
+        OnAttack(AttackType.Hi);
     }
 
     private void OnHaAttack()
     {
-        OnAttack(Attack.Ha);
+        OnAttack(AttackType.Ha);
     }
 
     private void OnHoAttack()
     {
-        OnAttack(Attack.Ho);
+        OnAttack(AttackType.Ho);
     }
 
     private void OnHeAttack()
     {
-        OnAttack(Attack.He);
+        OnAttack(AttackType.He);
     }
 }

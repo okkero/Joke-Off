@@ -1,4 +1,4 @@
-public enum Attack
+public enum AttackType
 {
     Hi,
     Ha,

@@ -10,9 +10,10 @@ public class FightManager : MonoBehaviour
         Instance = this;
     }
 
-    public AttackProjectile SpawnAttackProjectile(Vector3 position, AttackTarget target)
+    public AttackProjectile SpawnAttackProjectile(Transform origin, AttackTarget target)
     {
-        var projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
+        var projectile = Instantiate(projectilePrefab, origin.position, Quaternion.identity);
+        projectile.transform.localScale = origin.lossyScale;
 
         var projectileComponent = projectile.GetComponent<AttackProjectile>();
         projectileComponent.target = target;
