@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AttackProjectile : MonoBehaviour
@@ -12,8 +13,16 @@ public class AttackProjectile : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        var transform = this.transform;
+        var scale = transform.lossyScale;
+
         _startPosition = transform.position;
         _spawnTime = Time.time;
+
+        var textTransform = GetComponentInChildren<TextMesh>().transform;
+        textTransform.localScale = Vector3.Scale(
+            textTransform.localScale,
+            new Vector3(Math.Sign(scale.x), Math.Sign(scale.y), Math.Sign(scale.z)));
     }
 
     // Update is called once per frame
