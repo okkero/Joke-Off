@@ -13,4 +13,9 @@ public class AttackTarget : MonoBehaviour
     private void Update()
     {
     }
+
+    public void Hit()
+    {
+        GetComponentInParent<Fighter>().Hit(attackType);
+    }
 }

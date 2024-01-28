@@ -98,6 +98,14 @@ public class Fighter : MonoBehaviour
         _mouth.SetOpen(false);
     }
 
+    public void Hit(AttackType attackType)
+    {
+        if (_blocking == attackType)
+            Debug.unityLogger.Log($"Blocked {attackType}");
+        else
+            Debug.unityLogger.Log($"Hit by {attackType}");
+    }
+
     private void OnHiAttack()
     {
         OnAttack(AttackType.Hi);

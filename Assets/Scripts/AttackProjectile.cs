@@ -23,6 +23,7 @@ public class AttackProjectile : MonoBehaviour
 
         if (aliveTime >= 1)
         {
+            target.Hit();
             Destroy(gameObject);
             return;
         }
