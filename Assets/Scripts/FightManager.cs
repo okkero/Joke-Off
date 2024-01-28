@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FightManager : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class FightManager : MonoBehaviour
     public GameObject projectilePrefabHa;
     public GameObject projectilePrefabHo;
     public GameObject projectilePrefabHe;
+
+    public HealthBar healthBar;
+
     public static FightManager Instance { get; private set; }
 
     private void Awake()
@@ -36,14 +40,21 @@ public class FightManager : MonoBehaviour
         }
 
         var projectile = Instantiate(prefab, origin.position, Quaternion.identity);
+        var originScale = origin.lossyScale;
         projectile.transform.localScale = new Vector3(
-            Math.Sign(origin.lossyScale.x),
-            Math.Sign(origin.lossyScale.y),
-            Math.Sign(origin.lossyScale.z));
+            Math.Sign(originScale.x),
+            Math.Sign(originScale.y),
+            Math.Sign(originScale.z));
 
         var projectileComponent = projectile.GetComponent<AttackProjectile>();
         projectileComponent.target = target;
 
         return projectileComponent;
+    }
+
+    public void Hit(PlayerIndex playerIndex)
+    {
+        var winner = healthBar.Hit(playerIndex);
+        if (winner != null) SceneManager.LoadScene("Scenes/Victory");
     }
 }

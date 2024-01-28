@@ -3,12 +3,6 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public enum PlayerIndex
-{
-    Player1,
-    Player2
-}
-
 public class Fighter : MonoBehaviour
 {
     public PlayerIndex player;
@@ -103,9 +97,14 @@ public class Fighter : MonoBehaviour
     public void Hit(AttackType attackType)
     {
         if (_blocking == attackType)
+        {
             Debug.unityLogger.Log($"Blocked {attackType}");
+        }
         else
+        {
             Debug.unityLogger.Log($"Hit by {attackType}");
+            FightManager.Instance.Hit(player);
+        }
     }
 
     private void OnHiAttack()
