@@ -31,7 +31,8 @@ public class AttackProjectile : MonoBehaviour
         var targetPosition = target.transform.position;
         var horizontalOffset = _startPosition.x +
                                (targetPosition.x - _startPosition.x) * horizontalFunction.Evaluate(aliveTime);
-        var verticalOffset = _startPosition.y + verticalFunction.Evaluate(aliveTime);
+        var verticalOffset = _startPosition.y + (targetPosition.y - _startPosition.y) * aliveTime +
+                             verticalFunction.Evaluate(aliveTime);
 
         var transform = this.transform;
         var projectilePosition = transform.position;

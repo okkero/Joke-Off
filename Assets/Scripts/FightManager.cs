@@ -36,7 +36,10 @@ public class FightManager : MonoBehaviour
         }
 
         var projectile = Instantiate(prefab, origin.position, Quaternion.identity);
-        projectile.transform.localScale = origin.lossyScale;
+        projectile.transform.localScale = new Vector3(
+            Math.Sign(origin.lossyScale.x),
+            Math.Sign(origin.lossyScale.y),
+            Math.Sign(origin.lossyScale.z));
 
         var projectileComponent = projectile.GetComponent<AttackProjectile>();
         projectileComponent.target = target;
