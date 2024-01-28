@@ -87,7 +87,9 @@ public class Fighter : MonoBehaviour
     private IEnumerator Block(AttackType attackType)
     {
         _blocking = attackType;
+        _attackTargets.First(target => target.attackType == attackType).SetBlocking(true);
         yield return new WaitForSeconds(0.16f);
+        _attackTargets.First(target => target.attackType == attackType).SetBlocking(false);
         _blocking = null;
     }
 

@@ -38,4 +38,11 @@ public class AttackTarget : MonoBehaviour
     {
         GetComponentInParent<Fighter>().Hit(attackType);
     }
+
+    public void SetBlocking(bool blocking)
+    {
+        var color = _spriteRenderer.color;
+        color.a = blocking ? 1.0f : 0.5f;
+        _spriteRenderer.color = color;
+    }
 }
