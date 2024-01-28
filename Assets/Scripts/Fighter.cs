@@ -7,16 +7,16 @@ public class Fighter : MonoBehaviour
 {
     public PlayerIndex player;
     public Fighter opponent;
-    private AttackTarget[] _attackTargets;
     private AttackType? _blocking;
     private bool _coolingDown;
     private Mouth _mouth;
+    public AttackTarget[] AttackTargets { get; private set; }
 
     // Start is called before the first frame update
     private void Start()
     {
         _mouth = GetComponentInChildren<Mouth>();
-        _attackTargets = GetComponentsInChildren<AttackTarget>();
+        AttackTargets = GetComponentsInChildren<AttackTarget>();
     }
 
     // Update is called once per frame
@@ -66,8 +66,8 @@ public class Fighter : MonoBehaviour
 
         StartCoroutine(OpenMouth());
 
-        var origin = _attackTargets.First(target => target.attackType == attackType);
-        var target = opponent._attackTargets.First(target => target.attackType == attackType);
+        var origin = AttackTargets.First(target => target.attackType == attackType);
+        var target = opponent.AttackTargets.First(target => target.attackType == attackType);
         FightManager.Instance.SpawnAttackProjectile(attackType, origin.transform, target);
     }
 
@@ -81,9 +81,9 @@ public class Fighter : MonoBehaviour
     private IEnumerator Block(AttackType attackType)
     {
         _blocking = attackType;
-        _attackTargets.First(target => target.attackType == attackType).SetBlocking(true);
+        AttackTargets.First(target => target.attackType == attackType).SetBlocking(true);
         yield return new WaitForSeconds(0.16f);
-        _attackTargets.First(target => target.attackType == attackType).SetBlocking(false);
+        AttackTargets.First(target => target.attackType == attackType).SetBlocking(false);
         _blocking = null;
     }
 
@@ -103,7 +103,7 @@ public class Fighter : MonoBehaviour
         else
         {
             Debug.unityLogger.Log($"Hit by {attackType}");
-            FightManager.Instance.Hit(player);
+            FightManager.Instance.Hit(player, opponent);
         }
     }
 

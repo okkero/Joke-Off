@@ -52,9 +52,16 @@ public class FightManager : MonoBehaviour
         return projectileComponent;
     }
 
-    public void Hit(PlayerIndex playerIndex)
+    public void Hit(PlayerIndex playerIndex, Fighter opponent)
     {
         var winner = healthBar.Hit(playerIndex);
-        if (winner != null) SceneManager.LoadScene("Scenes/Victory");
+        if (winner != null)
+        {
+            DontDestroyOnLoad(opponent);
+
+            VictoryData.WinnerPlayer = playerIndex;
+            VictoryData.WinnerCharacter = opponent;
+            SceneManager.LoadScene("Scenes/Victory");
+        }
     }
 }
