@@ -1,9 +1,8 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows.Speech;
 
-[System.Serializable]
+[Serializable]
 public class CharacterInfo
 {
     public PlayerCharacter playerCharacter;
@@ -13,10 +12,10 @@ public class CharacterInfo
 public class CharacterConfig : MonoBehaviour
 {
     public CharacterInfo[] CharacterInfos;
-    
+
     private Dictionary<PlayerIndex, PlayerCharacter> _playerCharacters;
 
-    void Awake()
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
 
@@ -27,17 +26,18 @@ public class CharacterConfig : MonoBehaviour
         };
     }
 
-    CharacterInfo GetCharacterInfo(PlayerCharacter playerCharacter)
+    public CharacterInfo GetCharacterInfo(PlayerCharacter playerCharacter)
     {
         foreach (var characterInfo in CharacterInfos)
-        {
             if (characterInfo.playerCharacter == playerCharacter)
-            {
                 return characterInfo;
-            }
-        }
 
         return null;
+    }
+
+    public CharacterInfo GetCharacterInfoForPlayer(PlayerIndex playerIndex)
+    {
+        return GetCharacterInfo(_playerCharacters[playerIndex]);
     }
 
     public void SetPlayerCharacter(PlayerIndex playerIndex, PlayerCharacter playerCharacter)

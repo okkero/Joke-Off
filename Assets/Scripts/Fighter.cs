@@ -7,15 +7,16 @@ public class Fighter : MonoBehaviour
 {
     public PlayerIndex player;
     public Fighter opponent;
+    private CharacterAnimator _animator;
+    private bool _attackCooldown;
+    private bool _blockCooldown;
     private AttackType? _blocking;
-    private bool _coolingDown;
-    private Mouth _mouth;
     public AttackTarget[] AttackTargets { get; private set; }
 
     // Start is called before the first frame update
     private void Start()
     {
-        _mouth = GetComponentInChildren<Mouth>();
+        _animator = GetComponent<CharacterAnimator>();
         AttackTargets = GetComponentsInChildren<AttackTarget>();
     }
 
@@ -51,31 +52,38 @@ public class Fighter : MonoBehaviour
 
     private void OnBlock(AttackType attackType)
     {
-        if (_coolingDown) return;
-        StartCoroutine(Cooldown());
+        if (_blockCooldown) return;
+        StartCoroutine(BlockCooldown());
 
         StartCoroutine(Block(attackType));
     }
 
     private void OnAttack(AttackType attackType)
     {
-        if (_coolingDown) return;
-        StartCoroutine(Cooldown());
+        if (_attackCooldown) return;
+        StartCoroutine(AttackCooldown());
 
         Debug.unityLogger.Log($"Attack {attackType}");
 
-        StartCoroutine(OpenMouth());
+        _animator.AnimateLaugh();
 
         var origin = AttackTargets.First(target => target.attackType == attackType);
         var target = opponent.AttackTargets.First(target => target.attackType == attackType);
         FightManager.Instance.SpawnAttackProjectile(attackType, origin.transform, target);
     }
 
-    private IEnumerator Cooldown()
+    private IEnumerator BlockCooldown()
     {
-        _coolingDown = true;
+        _blockCooldown = true;
         yield return new WaitForSeconds(0.5f);
-        _coolingDown = false;
+        _blockCooldown = false;
+    }
+
+    private IEnumerator AttackCooldown()
+    {
+        _attackCooldown = true;
+        yield return new WaitForSeconds(0.5f);
+        _attackCooldown = false;
     }
 
     private IEnumerator Block(AttackType attackType)
@@ -85,13 +93,6 @@ public class Fighter : MonoBehaviour
         yield return new WaitForSeconds(0.16f);
         AttackTargets.First(target => target.attackType == attackType).SetBlocking(false);
         _blocking = null;
-    }
-
-    private IEnumerator OpenMouth()
-    {
-        _mouth.SetOpen(true);
-        yield return new WaitForSeconds(0.16f);
-        _mouth.SetOpen(false);
     }
 
     public void Hit(AttackType attackType)
