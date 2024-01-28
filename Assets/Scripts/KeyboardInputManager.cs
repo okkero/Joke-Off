@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerInput
 {
+    internal KeyCode BlockKey;
     internal KeyCode HaKey;
     internal KeyCode HeKey;
     internal KeyCode HiKey;
@@ -19,6 +20,8 @@ public class PlayerInput
             return null;
         }
     }
+
+    public bool Blocking => Input.GetKey(BlockKey);
 }
 
 public static class KeyboardInputManager
@@ -33,7 +36,8 @@ public static class KeyboardInputManager
             HiKey = KeyCode.Q,
             HaKey = KeyCode.W,
             HoKey = KeyCode.E,
-            HeKey = KeyCode.R
+            HeKey = KeyCode.R,
+            BlockKey = KeyCode.A
         };
 
         Player2Input = new PlayerInput
@@ -41,7 +45,8 @@ public static class KeyboardInputManager
             HiKey = KeyCode.H,
             HaKey = KeyCode.J,
             HoKey = KeyCode.K,
-            HeKey = KeyCode.L
+            HeKey = KeyCode.L,
+            BlockKey = KeyCode.N
         };
     }
 }
