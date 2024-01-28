@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 2371039904538796251}
   - component: {fileID: 4320259483467702231}
   - component: {fileID: 3812424183190084837}
+  - component: {fileID: 7124529446422581807}
+  - component: {fileID: 3682335270604911273}
   m_Layer: 0
   m_Name: TrollIdle
   m_TagString: Untagged
@@ -201,3 +203,119 @@ MonoBehaviour:
     m_RotationOrder: 4
   xMultiplier: 4
   rMultiplier: 10
+--- !u!82 &7124529446422581807
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743606924841174634}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3682335270604911273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743606924841174634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2363e6e50946664b8b7b657eebe8daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiClip: {fileID: 8300000, guid: c6a15537a2c1f96449d46e44555632ec, type: 3}
+  haClip: {fileID: 8300000, guid: 4e03b9120c579174d9feef6efc1c2a4d, type: 3}
+  hoClip: {fileID: 8300000, guid: d4d11d213a68af843a81ad044c4c1ca2, type: 3}
+  heClip: {fileID: 8300000, guid: 8864d06b32c27f645bfa9365e4f848e7, type: 3}
+  hikClip: {fileID: 8300000, guid: 96e1cb176a9b8be499e12c9f3ce5edeb, type: 3}
+  hakClip: {fileID: 8300000, guid: 360975e8a4daba34d917d9c65845afe1, type: 3}
+  hokClip: {fileID: 8300000, guid: ec81cb82dc79de147bcce5cc83a11f89, type: 3}
+  hekClip: {fileID: 8300000, guid: 39da2098c94fb734284de439c80cb8ad, type: 3}

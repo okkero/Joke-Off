@@ -65,7 +65,7 @@ public class Fighter : MonoBehaviour
 
         Debug.unityLogger.Log($"Attack {attackType}");
 
-        _animator.AnimateLaugh();
+        _animator.AnimateLaugh(attackType);
 
         var origin = AttackTargets.First(target => target.attackType == attackType);
         var target = opponent.AttackTargets.First(target => target.attackType == attackType);
