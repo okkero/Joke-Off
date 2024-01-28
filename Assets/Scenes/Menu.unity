@@ -580,14 +580,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 501aed6c30168a846a9282213b7d8514, type: 3}
     mouthSprite: {fileID: 21300000, guid: 553fb23ddbc97054886c1474859fbaac, type: 3}
   - playerCharacter: 2
-    sprite: {fileID: 21300000, guid: e9b8dacc8b66f8846828cce0415e1421, type: 3}
-    mouthSprite: {fileID: 21300000, guid: acd21879873da574b9d31eb370fe7fcc, type: 3}
+    sprite: {fileID: -465421388, guid: 3af20284341a2d042bbdd5688e1d5170, type: 3}
+    mouthSprite: {fileID: 0}
   - playerCharacter: 3
-    sprite: {fileID: 21300000, guid: 501aed6c30168a846a9282213b7d8514, type: 3}
-    mouthSprite: {fileID: 21300000, guid: 553fb23ddbc97054886c1474859fbaac, type: 3}
+    sprite: {fileID: -2044755649, guid: 45dbb5124c342734a9dc92500352de69, type: 3}
+    mouthSprite: {fileID: 0}
   - playerCharacter: 4
-    sprite: {fileID: 21300000, guid: e9b8dacc8b66f8846828cce0415e1421, type: 3}
-    mouthSprite: {fileID: 21300000, guid: acd21879873da574b9d31eb370fe7fcc, type: 3}
+    sprite: {fileID: 1489871770, guid: d42b27ed582327d48b4eeddb15ed6c87, type: 3}
+    mouthSprite: {fileID: 0}
 --- !u!4 &1080647068
 Transform:
   m_ObjectHideFlags: 0
