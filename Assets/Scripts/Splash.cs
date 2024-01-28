@@ -11,6 +11,6 @@ public class Splash : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.anyKeyDown) SceneManager.LoadScene("Scenes/Game");
+        if (Input.anyKeyDown) SceneManager.LoadScene("Scenes/Menu");
     }
 }
