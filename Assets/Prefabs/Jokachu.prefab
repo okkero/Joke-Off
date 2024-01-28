@@ -333,10 +333,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2363e6e50946664b8b7b657eebe8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiClip: {fileID: 0}
-  haClip: {fileID: 0}
-  hoClip: {fileID: 0}
-  heClip: {fileID: 0}
+  hiClip: {fileID: 8300000, guid: c3ef6b0fb8f6c2f46bf7517035ca44cc, type: 3}
+  haClip: {fileID: 8300000, guid: 1bf16dc001cb94c4f9090a6fa3d5fe02, type: 3}
+  hoClip: {fileID: 8300000, guid: 4cf19b6578df46d439e8153f9f52b470, type: 3}
+  heClip: {fileID: 8300000, guid: 86f9f24ff73dfa548a05ff91c0929006, type: 3}
+  hikClip: {fileID: 8300000, guid: 4693b9e5aaf745941826aa8e2c5ae861, type: 3}
+  hakClip: {fileID: 8300000, guid: 6c49f26944c03d747ae992b68521538b, type: 3}
+  hokClip: {fileID: 8300000, guid: 8b2997da0811a1d48b54cd1a4d506bc1, type: 3}
+  hekClip: {fileID: 8300000, guid: fce0dd3a549209a47b6f689eff26c331, type: 3}
 --- !u!82 &3403379997598939366
 AudioSource:
   m_ObjectHideFlags: 0
