@@ -100,11 +100,13 @@ public class Fighter : MonoBehaviour
         if (_blocking == attackType)
         {
             Debug.unityLogger.Log($"Blocked {attackType}");
+            _animator.AnimateBlock(attackType);
         }
         else
         {
             Debug.unityLogger.Log($"Hit by {attackType}");
             FightManager.Instance.Hit(player, opponent);
+            _animator.AnimateHit(attackType);
         }
     }
 
