@@ -7,8 +7,7 @@ using UnityEngine.Windows.Speech;
 public class CharacterInfo
 {
     public PlayerCharacter playerCharacter;
-    public Sprite sprite;
-    public Sprite mouthSprite;
+    public GameObject prefab;
 }
 
 public class CharacterConfig : MonoBehaviour
