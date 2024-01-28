@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
 {
@@ -17,5 +18,10 @@ public class Victory : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+    }
+
+    private void OnMouseDown()
+    {
+        SceneManager.LoadScene("Scenes/Menu");
     }
 }
